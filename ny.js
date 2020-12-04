@@ -5,14 +5,45 @@
    if (need_print) {
    frontol.userValues.set("print", "0");
    var sum = Number(frontol.userValues.get("sum"));
-   var cards = Number(frontol.userValues.get("cards"));
+    
    print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString("ПОДАРОК"," ");      
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString("Обменяйте это купон на подарок"," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.partialCut();
+    
+   
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString(""," ");
+   print.printCenterString("Скидка 50 рублей в период"," ");      
+   print.printCenterString("с 11 по 24 января 2021 года"," ");
+   print.printCenterString(""," ");
+   print.printBarcode ("9925533178457", false, 500, 500, 84);
    print.printCenterString(""," ");
    print.printCenterString("Сумма чека: " + sum," ");
-   print.printCenterString("Выдано карт: " + cards," ");
-   print.printCenterString(""," ");
-   print.printBarcode (""+cards, false, 500, 500, 84);
-   print.printCenterString(""," ");
    print.printCenterString(frontol.currentDocument.closeUser.name," ");
    print.printCenterString(""," ");
    print.printCenterString(""," ");
@@ -25,13 +56,7 @@
    print.printCenterString("КАССОВЫЙ ЧЕК"," ");
    }
 
-   print.printCenterString("","=");
-   print.printCenterString("НОВОГОДНЯЯ АКЦИЯ с 20 по 31 декабря"," ");
-   print.printCenterString("ГАРАНТИРОВАННЫЙ ПОДАРОК"," ");
-   print.printCenterString("ЗА КАЖДУЮ 1000 В ЧЕКЕ"," ");
-   print.printCenterString("ТРИ СУПЕРПРИЗА ПО 15000 РУБЛЕЙ"," ");
-   print.printCenterString("Информация на vk.com/sudzhuk"," ");
-   print.printCenterString("","=");  
+   
    /* КОНЕЦ НОВОГОДНЕЙ АКЦИИ */
 
 
@@ -39,24 +64,18 @@
 
     // Новогодняя акция
     // В период с 20 по 31 декабря выдавать карту за каждую 1000 в чеке
-    var from = "13.12.19";
-    var to = "31.12.19";
-    var sum = 10;
+    var from = "14.12.20";
+    var to = "31.12.20";
+    var sum = 1500;
     var totalSum = frontol.currentDocument.totalSum;
     if (frontol.currentDocument.dateOpen >= from && frontol.currentDocument.dateOpen <= to && totalSum >=sum && frontol.currentDocument.type.code == 1)
     {
-       var cards = Math.floor(totalSum / sum)
-       var text = "карт";
-       if (cards == 1) text += "у";
-       if (cards >= 2 && cards <= 4) text += "ы";
-
-       // Сообщение
-       frontol.actions.showMessage("Клиент участвует в акции, вы должны выдать "+ cards + " " + text);
+      // Сообщение
+       frontol.actions.showMessage("Клиент участвует в акции, расскажите ему про подарок и купон на скидку!");
 
         /* Нужно ли печатать допчек */
        frontol.userValues.set("sum", totalSum + "");
        frontol.userValues.set("print", "1");
-       frontol.userValues.set("cards", cards + ""); 
     }
     else {
     frontol.userValues.set("print", "0");
